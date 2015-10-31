@@ -115,7 +115,7 @@ class Hessian2Output(object) :
             self.__writeByte(value & 0xff)
         elif -262144 <= value <= 262143 :
             self.__writeByte(0x3c + (value >> 16))
-            self.__pack('>H', (value >> 8))
+            self.__pack('>H', value & 0xFFFF)
         elif -0x80000000L <= value <= 0x7fffffffL:
             self.__write('\x59')
             self.__pack('>i', value)
